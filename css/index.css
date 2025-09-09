@@ -62,6 +62,11 @@
     clear: both;
 }
 
+.R 
+{
+    text-align: center;
+}
+
 /* Navigation Links */
 a 
 {
@@ -180,10 +185,17 @@ h3
 
 fieldset 
 {
-    border: 1px solid white;
+    border: 2px solid rgb(0, 0, 0);
     margin: 5%;
     padding: 3%;
     border-radius: 5px;
+}
+
+.legend 
+{
+    padding: 0 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .logo 
@@ -207,6 +219,13 @@ fieldset
     display: inline;
     padding: 1%;
     font-weight: bold;
+}
+
+.food-order
+{
+    background-image: url(../images/order6.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .food-search 
@@ -426,3 +445,22 @@ fieldset
   color: #ff9800;
   transform: scale(1.2);
 }
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    margin-top: auto; /* Push footer to bottom */
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
