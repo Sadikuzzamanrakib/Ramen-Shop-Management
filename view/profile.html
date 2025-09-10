@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile</title>
+
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --card: #111623ee;
+      --text: #eef2ff;
+      --muted: #a8b0c1;
+      --brand: #e84e3b;
+      --accent: #f6b17a;
+
+      --radius: 18px;
+      --shadow: 0 14px 40px rgba(0,0,0,.45);
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(160deg, #0b0d12, #141b29);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+    }
+
+    .profile-card {
+      background: var(--card);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 32px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .avatar {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    .tagline {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .info {
+      text-align: left;
+      margin: 18px 0;
+    }
+    .info div {
+      margin: 8px 0;
+    }
+    .label {
+      font-weight: 600;
+      color: var(--muted);
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      color: #fff;
+      margin-top: 12px;
+      transition: transform 0.1s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .social {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+    }
+    .social a {
+      width: 38px; height: 38px;
+      display: grid; place-items: center;
+      background: rgba(255,255,255,.08);
+      border-radius: 50%;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 18px;
+      transition: background .2s;
+    }
+    .social a:hover {
+      background: var(--brand);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <!-- Replace with actual user avatar -->
+    <img src="https://i.pravatar.cc/300" alt="Profile avatar" class="avatar">
+    
+    <h1>Jafir Islam Siam</h1>
+    <p class="tagline">Ramen Lover • Web Developer • Tokyo</p>
+
+    <div class="info">
+      <div>
+        <span class="label">Email</span>
+        jafir@example.com
+      </div>
+      <div>
+        <span class="label">Phone</span>
+        +81 3 0000 1122
+      </div>
+      <div>
+        <span class="label">Location</span>
+        Shinjuku, Tokyo
+      </div>
+    </div>
+
+    <button class="btn">Edit Profile</button>
+
+    <div class="social">
+      <a href="#" aria-label="Instagram">📸</a>
+      <a href="#" aria-label="Twitter">🐦</a>
+      <a href="#" aria-label="LinkedIn">💼</a>
+    </div>
+  </div>
+</body>
+</html>
