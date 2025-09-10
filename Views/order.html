@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ramen House</title>
+    <link rel="shortcut icon" href="images/ramen logo.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+    <section class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" title="Logo">
+                    <span><img src="images/ramen logo.png" alt="Ramen House Logo" width="80" height="80"></span>
+                </a>
+            </div>
+
+            <div class="menu text-right">
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="categories.html">Categories</a>
+                    </li>
+                    <li>
+                        <a href="foods.html">Foods</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                    <li>
+                        <a href="profile.html">Profile</a>
+                    </li>
+                     <li>
+                        <a href="controller/login.php">Login</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </section>
+
+    <section class="food-order">
+        <div class="container">
+            
+            <h2 class="text-center text-black">Fill this form to confirm your order.</h2>
+
+            <form action="#" class="order">
+                <fieldset>
+                    <legend class="legend">Selected Food</legend>
+
+                    <div class="food-menu-img">
+                        <img src="images/Tonkotsu Ramen.jpg" alt="Tonkotsu Ramen" class="img-responsive img-curve">
+                    </div>
+    
+                    <div class="food-menu-desc">
+                        <h3>Tonkotsu Ramen</h3>
+                        <p class="food-price">$2.3</p>
+
+                        <div class="order-label">Quantity</div>
+                        <input type="number" name="qty" class="input-responsive" value="1" required>
+                        
+                    </div>
+
+                </fieldset>
+                
+                <fieldset>
+                    <legend class="legend">Delivery Details</legend>
+                    <div class="order-label">Full Name</div>
+                    <input type="text" name="full-name" placeholder="Enter your full name" class="input-responsive" required>
+
+                    <div class="order-label">Phone Number</div>
+                    <input type="tel" name="contact" placeholder="Enter your phone number" class="input-responsive" required>
+
+                    <div class="order-label">Email</div>
+                    <input type="email" name="email" placeholder="Enter your email" class="input-responsive" required>
+
+                    <div class="order-label">Address</div>
+                    <textarea name="address" rows="10" placeholder=" Street, City, Country" class="input-responsive" required></textarea>
+
+                    <input type="submit" name="submit" value="Confirm Order" style="display:block; margin:20px auto; padding:10px 20px; background:#000; color:#fff; border:none; border-radius:5px; cursor:pointer;">
+                </fieldset>
+
+            </form>
+
+        </div>
+    </section>
+   
+ <!-- Footer Section -->
+    <section class="footer">
+       <div class="container">
+            <p>All rights reserved. Designed By <a href="contact.html">Group-4</a></p>
+            <div class="social-links">
+              <a href="contact.html"><i class="fab fa-facebook-f"></i></a>
+              <a href="contact.html"><i class="fab fa-instagram"></i></a>
+              <a href="contact.html"><i class="fab fa-twitter"></i></a>
+              <a href="contact.html"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </section>
+   
+
+</body>
+</html>
