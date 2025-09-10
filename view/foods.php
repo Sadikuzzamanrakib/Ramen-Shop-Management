@@ -3,7 +3,7 @@
     <section class="food-search text-center">
         <div class="container">
             
-               <form action="<?php echo SITEURL; ?>food-search.php" method="POST">
+            <form action="<?php echo SITEURL; ?>food-search.php" method="POST">
                 <input type="search" name="search" placeholder="Search for Food.." required>
                 <input type="submit" name="submit" value="Search" class="btn btn-primary">
             </form>
@@ -45,14 +45,13 @@
                                   
                                     if($image_name=="")
                                     {
-                                    
                                         echo "<div class='error'>Image not Available.</div>";
                                     }
                                     else
                                     {
                                      
                                         ?>
-                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Tonkotsu Ramen" class="img-responsive img-curve">
+                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Tonkosu Ramen" class="img-responsive img-curve">
                                         <?php
                                     }
                                 ?>
