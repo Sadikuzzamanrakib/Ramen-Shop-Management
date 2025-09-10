@@ -51,7 +51,7 @@
                                     {
                                      
                                         ?>
-                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Tonkosu Ramen" class="img-responsive img-curve">
+                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Tonkos Ramen" class="img-responsive img-curve">
                                         <?php
                                     }
                                 ?>
