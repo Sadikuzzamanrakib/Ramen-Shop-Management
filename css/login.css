@@ -54,6 +54,52 @@
     }
     .brand h1 span { color: var(--accent); }
 
+    .home{
+    flex: 1;
+    width: 50px;
+    color: #222; 
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: end;
+    }
+    #homelink{
+        position: relative;
+    }
+    a 
+{
+    color: #222; 
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+    a::after 
+    {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ff4500; /* underline color */
+    transition: width 0.3s ease-in-out;
+    }
+
+    a:hover 
+    {
+    color: #ff4500; /* hover text color */
+    }
+
+    a:hover::after 
+    {
+    width: 100%; /* underline grows on hover */
+    }
+
     /* --- Main content area --- */
     main {
       padding: clamp(16px, 4vw, 32px);
