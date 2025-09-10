@@ -34,7 +34,7 @@
 
             <form action ="" method ="post" class ="text-center">
             Username : <br>
-            <input type ="text" name="username" placeholder ="Enter Username"><br><br>
+            <input type ="text" name="username" placeholder ="Enter your Username"><br><br>
 
             Password : <br>
             <input type ="password" name="password" placeholder ="Enter Password"><br><br>
