@@ -2,7 +2,6 @@
 
 <?php
 include('../Models/regmodel.php');
-include('validate.php');
 ?>
 
 <?php
