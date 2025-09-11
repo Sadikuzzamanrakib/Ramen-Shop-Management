@@ -43,7 +43,7 @@
                         <a href="<?php echo SITEURL; ?>view/registration.php">Registration</a>
                     </li>
                      <li>
-                        <a href="<?php echo SITEURL; ?>controller/login.php">Login</a>
+                        <a href="<?php echo SITEURL; ?>controller/login.php">Admin</a>
                     </li>
                 </ul>
             </div>

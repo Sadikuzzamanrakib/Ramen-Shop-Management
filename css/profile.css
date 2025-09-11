@@ -1,0 +1,116 @@
+.container{
+    margin: 0px;
+    margin-bottom: 50px;
+    background-color: #ffe5d4; /* soft pastel peach */
+    padding: 20px 0;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgba(0, 0 , 0 , 0.15);
+}
+.image{
+    display: inline-block;
+    width: 70px;
+    object-fit: contain;
+}
+.profile-info{
+    display: inline-block;
+    vertical-align: top;
+    width: 250px;
+    margin-left: 20px;
+}
+.edit{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 8px;
+    margin-left: 20px;
+}
+.profile-pic{
+    width: 50px;
+    height: 50px;
+    margin-left: 30px;
+    border-radius:35px;
+    margin-top: 5px;
+    object-fit: cover;
+    border: 2px solid #ffb07c; /* warm accent border */
+}
+.name{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #8b3e2f; /* rich brown-red for strong contrast */
+    font-size: 20px;
+}
+.email, .number{
+    color: #a65d4a; /* lighter reddish-brown for secondary info */
+}
+
+.edit-btn{
+    background-color: #ff8c61; /* medium coral button */
+    border: none;
+    color: #ffffff; /* white text for readability */
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.15s, transform 0.15s;
+}
+.edit-btn:hover{
+    background-color: #ff6f40; /* slightly darker coral on hover */
+    transform: translateY(-2px);
+}
+
+.input-label{
+    color: #8b3e2f;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.stored-info{
+}
+.edit-info{
+
+}
+.edit-row2{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+}       
+
+#number-edit , #email-edit , #name-edit{
+    width: 300px;
+    max-width: 640px;
+    height: 28px;
+    border-radius: 3px;
+    border: 1px solid #ffb07c; /* matching accent border */
+    min-width: 10px;
+    flex-shrink: 1;
+    padding-left: 8px;
+    background-color: #fff1e6; /* slightly off-white for inputs */
+}
+
+#name-edit{
+    width: 635px;
+}
+
+.name-block , .email-block , .number-block{
+    margin-left: 20px;
+}
+
+.input-field{
+    display: flex;
+    flex-shrink: 1;
+}
+.purchase-history-table{
+    color: #8b3e2f; /* dark brown-red text for table */
+}
+.purchase-history-table tr{
+   background-color: #ffc9b3; /* light coral rows for subtle contrast */
+}
+.purchase-history-table td{
+    border: none;
+    text-align: center;
+    width: 500px;
+}
