@@ -40,7 +40,7 @@
                         <a href="<?php echo SITEURL; ?>view/contact.php">Contact</a>
                     </li>
                      <li>
-                        <a href="<?php echo SITEURL; ?>view/profile.php">Profile</a>
+                        <a href="<?php echo SITEURL; ?>view/registration.php">Registration</a>
                     </li>
                      <li>
                         <a href="<?php echo SITEURL; ?>controller/login.php">Login</a>
