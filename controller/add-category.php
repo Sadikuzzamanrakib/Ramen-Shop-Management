@@ -23,7 +23,7 @@
 <tr>
     <td>Title:</td>
     <td>
-        <input type = "text" name = "title" placeholder ="Category Title">
+        <input type = "text" name = "title" placeholder ="Category title">
     </td>
 </tr>
 <tr>
