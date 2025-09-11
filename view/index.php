@@ -24,7 +24,7 @@
     <!-- Explore Ramen Section -->
     <section class="categories">
         <div class="container">
-            <h2 class="text-center">Exploree Ramen</h2>
+            <h2 class="text-center">Explore Ramen</h2>
 
            <?php 
                 
