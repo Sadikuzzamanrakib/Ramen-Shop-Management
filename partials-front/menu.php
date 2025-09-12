@@ -47,11 +47,11 @@ $user = $_SESSION['user'] ?? null;
                        <?php if ($user): ?>
                      <!-- User Logged In -->
                     <li><a href="profile.php">Profile (<?= htmlspecialchars($user['username']) ?>)</a></li>
-                    <li><a href="controllers/logout.php">Logout</a></li>
+                    <li><a href="../controller/userLogoutController.php">Logout</a></li>
                     <?php else: ?>
                     <!-- NO Login -->
                      <li>
-                        <a href="<?php echo SITEURL; ?>view/registration.php">Registration</a>
+                        <a href="<?php echo SITEURL; ?>view/registration.php">Login</a>
                     </li>
                     <?php endif; ?>
                      <li>
