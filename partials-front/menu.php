@@ -1,4 +1,9 @@
-<?php include('../model/constants.php'); ?>
+<?php include('../model/constants.php');
+
+session_start();
+$user = $_SESSION['user'] ?? null;
+
+?>
 
 
 <!DOCTYPE html>
@@ -39,9 +44,16 @@
                     <li>
                         <a href="<?php echo SITEURL; ?>view/contact.php">Contact</a>
                     </li>
+                       <?php if ($user): ?>
+                     <!-- User Logged In -->
+                    <li><a href="profile.php">Profile (<?= htmlspecialchars($user['username']) ?>)</a></li>
+                    <li><a href="controllers/logout.php">Logout</a></li>
+                    <?php else: ?>
+                    <!-- NO Login -->
                      <li>
                         <a href="<?php echo SITEURL; ?>view/registration.php">Registration</a>
                     </li>
+                    <?php endif; ?>
                      <li>
                         <a href="<?php echo SITEURL; ?>controller/login.php">Admin</a>
                     </li>

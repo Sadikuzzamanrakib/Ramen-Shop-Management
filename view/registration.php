@@ -72,8 +72,8 @@
           </div>
 
           <!-- Login Panel (UI stub) -->
-          <div id="panel-login" class="panel">
-            <form id="loginForm" novalidate>
+          <div id="panel-login" class="panel" >
+            <form id="loginForm" action="../controller/userLoginController.php" method="POST">
               <div class="field">
                 <label for="login-email">Email</label>
                 <input id="login-email" name="email" type="email" required />
@@ -87,7 +87,7 @@
               </div>
 
               <div class="actions">
-                <button class="btn" type="button" disabled>Login (coming soon)</button>
+                <button class="btn" type="submit" >Login</button>
                 <span class="muted">New here? <a href="#" class="link tab-switch" data-tab="register">Register</a></span>
               </div>
             </form>
