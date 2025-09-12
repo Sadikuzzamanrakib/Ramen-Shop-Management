@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -77,13 +81,13 @@
               <div class="field">
                 <label for="login-email">Email</label>
                 <input id="login-email" name="email" type="email" required />
-                <small class="error"></small>
+                <small class="error"><?= ($_SESSION['login']) ?></small>
               </div>
 
               <div class="field">
                 <label for="login-pass">Password</label>
                 <input id="login-pass" name="pass" type="password" required />
-                <small class="error"></small>
+                <small class="error"><?= ($_SESSION['login']) ?></small>
               </div>
 
               <div class="actions">

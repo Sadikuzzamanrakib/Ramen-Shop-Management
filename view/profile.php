@@ -1,6 +1,8 @@
 <?php
 
 include('../partials-front/menu.php');
+session_start();
+$user = $_SESSION['user'] ?? null;
 
 ?>
 
@@ -24,18 +26,15 @@ include('../partials-front/menu.php');
         </div>
         <div class="profile-info">
             <div class="name">
-                 John Doe 
+                 <?= $user['username']; ?>
             </div>
             <div class="email">
-                    johndoe@example.com
-            </div>
-            <div class="number">
-                555-1234
+                      <?= $user['email']; ?>
             </div>
 
         </div>
         <div class="edit">
-            <button class="edit-btn">Edit</button>
+            <button class="edit-btn" id="edit-btn" onclick="Edit()">Edit</button>
         </div>
 
         </div>
@@ -45,7 +44,7 @@ include('../partials-front/menu.php');
                 <div class="name-block">
                        <span class="input-label">Name</span>
                        <div class="input-field">     
-                           <input type="text" name="name-edit" id="name-edit" placeholder="John Doe">
+                           <input type="text" name="name-edit" id="name-edit" placeholder="  <?= $user['username']; ?>" readonly>
                         
                        </div>
          
@@ -57,16 +56,9 @@ include('../partials-front/menu.php');
                  <div class="email-block">
                     <span class="input-label">Email</span>
                     <div class="input-field">
- <input type="email" name="email-edit" id="email-edit" placeholder="johndoe@example.com">
+         <input type="email" name="email-edit" id="email-edit" placeholder="<?= $user['email']; ?>" readonly >
                     </div>
                    
-                 </div>
-                
-                 <div class="number-block">
-                     <span class="input-label">Phone</span>
-                      <div class="input-field">
-                        <input type="text" name="number-edit" id="number-edit" placeholder=" 555-1234">
-                      </div>
                  </div>
 
             </div>
@@ -114,6 +106,37 @@ include('../partials-front/menu.php');
             <td>$50</td>
         </tr>
     </table>
+
+    <script>
+            let st= 2 ;
+            console.log(st);
+      function Edit(){
+           // disabled editing st 
+           console.log("Edit function called");
+        if(st%2==0){
+            st++;
+            console.log("Enabaling Edit");
+            enableEdit();
+        }
+        else{
+            st++;
+            disableEdit();
+            
+        }
+            }
+
+        function enableEdit(){
+        document.getElementById('name-edit').removeAttribute('readonly');
+        document.getElementById('email-edit').removeAttribute('readonly') ; 
+        document.getElementById('edit-btn').innerText="Save";
+        }
+         function disableEdit(){
+        document.getElementById('name-edit').setAttribute('readonly', true);
+        document.getElementById('email-edit').setAttribute('readonly' ,true) ; 
+        document.getElementById('edit-btn').innerText="Edit";
+        }
+       
+     </script>
 
 
     
