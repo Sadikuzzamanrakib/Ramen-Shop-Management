@@ -37,7 +37,7 @@
    <section class="food-search">
         <div class="container">
             
-            <h2 class="text-center text-white">Fill this form to confirm .</h2>
+            <h2 class="text-center text-white">Fill this form to confirm your order.</h2>
 
             <form action="" method="POST" class="order">
                 <fieldset>
