@@ -75,7 +75,7 @@
 
                      {
                                        
-                                        echo "<div class='error'>Image Available</div>";
+                                        echo "<div class='error'>Image Not Available</div>";
                                     }
 
 ?>
