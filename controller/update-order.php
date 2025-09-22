@@ -28,7 +28,7 @@
 
                     $food = $row['food'];
                     $price = $row['price'];
-                    $qty = $row['qty'];
+                    $qty = $row['quantity'];
                     $status = $row['status'];
                     $customer_name = $row['customer_name'];
                     $customer_contact = $row['customer_contact'];
@@ -143,7 +143,7 @@
 
               
                 $sql2 = "UPDATE tbl_order SET 
-                    qty = $qty,
+                    qunatity = $qty,
                     total = $total,
                     status = '$status',
                     customer_name = '$customer_name',

@@ -6,7 +6,7 @@
 }
 .wrapper{
     padding: 1%;
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
 
 }
@@ -19,6 +19,9 @@
 }
 .tbl-full{
     width: 100%;
+}
+.tbl-full td{
+    padding-right: 30px;
 }
 .tbl-30{
     width: 30%;

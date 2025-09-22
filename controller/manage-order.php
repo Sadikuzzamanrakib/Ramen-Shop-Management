@@ -51,7 +51,7 @@
                                 $id = $row['id'];
                                 $food = $row['food'];
                                 $price = $row['price'];
-                                $qty = $row['qty'];
+                                $qty = $row['quantity'];
                                 $total = $row['total'];
                                 $order_date = $row['order_date'];
                                 $status = $row['status'];
