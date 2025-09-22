@@ -30,7 +30,8 @@ session_start() ;
           $_SESSION['user']=[
             'id' => (int)$userData['id'],
             'username'=> $userData['username'],
-            'email'=> $userData['email']
+            'email'=> $userData['email'], 
+            'photo' => $userData['photo']
           ];
           header('Location:../view/index.php');
        }
