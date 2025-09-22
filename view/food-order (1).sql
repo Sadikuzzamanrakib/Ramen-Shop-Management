@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 11, 2025 at 07:50 PM
+-- Generation Time: Sep 22, 2025 at 10:44 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -31,6 +31,7 @@ CREATE TABLE `Student` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `photo` varchar(255) DEFAULT NULL,
   `password` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -38,11 +39,13 @@ CREATE TABLE `Student` (
 -- Dumping data for table `Student`
 --
 
-INSERT INTO `Student` (`id`, `username`, `email`, `password`) VALUES
-(38, 'Siam360', 'mdsiam2002j@gmail.com', '$2y$10$7U/4qvK.Tnzrh9/A2BtT3ew7ORKWhM3LkcQMN50J0pCMxq806zLnK'),
-(42, 'admin', 'jafirislam10@gmail.com', '$2y$10$eR7M9CZbZ0xJHVOtIlQZ6OXByudewWIVksJgwYHmE1OmugkwBRYRS'),
-(46, 'admin1', 'jafirislam101@gmail.com', '$2y$10$gNYJWCxT6xiO/7ASHuiFMu7x0VSZ6XisH5iHb.XbVPxVKbplApM/6'),
-(50, 'admin12', 'mdsiam2002j@gmail.com12', '$2y$10$7OJLVfQDoDdot1osLK9rmORPLG7NAqkIS89yGa6/Hc0P9Lch3MoH.');
+INSERT INTO `Student` (`id`, `username`, `email`, `photo`, `password`) VALUES
+(38, 'Siam360', 'mdsiam2002j@gmail.com', NULL, '$2y$10$7U/4qvK.Tnzrh9/A2BtT3ew7ORKWhM3LkcQMN50J0pCMxq806zLnK'),
+(42, 'admin', 'jafirislam10@gmail.com', NULL, '$2y$10$eR7M9CZbZ0xJHVOtIlQZ6OXByudewWIVksJgwYHmE1OmugkwBRYRS'),
+(46, 'admin1', 'jafirislam101@gmail.com', NULL, '$2y$10$gNYJWCxT6xiO/7ASHuiFMu7x0VSZ6XisH5iHb.XbVPxVKbplApM/6'),
+(50, 'admin12', 'mdsiam2002j@gmail.com12', NULL, '$2y$10$7OJLVfQDoDdot1osLK9rmORPLG7NAqkIS89yGa6/Hc0P9Lch3MoH.'),
+(51, 'sadik', 'sadik@gmail.com', NULL, '$2y$10$hf5iixvgLVQgwLAMj2qoyeUSmIjT.NaBh0xjhlnlp4Wn./z1ymkxW'),
+(53, 'Sashaa', 'Sasha1@gmail.com', 'uploads/img_68d1b4edda8914.58431420.jpg', '$2y$10$9KoIkjgSxrLXIm1m3AizMODPNyun80.py0307craoQrlyhm1QuSny');
 
 -- --------------------------------------------------------
 
@@ -62,7 +65,6 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`id`, `full_name`, `username`, `password`) VALUES
-(9, 'sadik', 'zzzz', '8f60c8102d29fcd525162d02eed4566b'),
 (12, 'sadik', 'sadik', '202cb962ac59075b964b07152d234b70'),
 (13, 'sadik', 'sadik', '202cb962ac59075b964b07152d234b70'),
 (14, 'Mostak ', 'sadik', '202cb962ac59075b964b07152d234b70'),
@@ -79,10 +81,7 @@ INSERT INTO `tbl_admin` (`id`, `full_name`, `username`, `password`) VALUES
 (26, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3'),
 (27, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3'),
 (28, 'zxc', 'zxc', '5fa72358f0b4fb4f2c5d7de8c9a41846'),
-(29, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3'),
-(36, 'zzz', 'zzzz', '02c425157ecd32f259548b33402ff6d3'),
-(37, 'rakib', 'rakib', 'a36949228c1d9146cace6359d88968e8'),
-(38, 'vvv', 'vvv', '4786f3282f04de5b5c7317c490c6d922');
+(29, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
@@ -134,7 +133,8 @@ INSERT INTO `tbl_food` (`id`, `title`, `description`, `price`, `image_name`, `ca
 (6, 'Spicy Miso Ramen', '   Medium spice heat, nutty richness, perfect for chili lovers.', 3, 'Food-Name-9221.jpg', 3, 'Yes', 'Yes'),
 (7, 'Vegan Ramen', ' Light, clean, and refreshing—ideal for a plant-based option.', 4, 'Food-Name-6990.jpg', 3, 'Yes', 'Yes'),
 (8, 'Classic Shoyu Ramen', '  Simple and nostalgic with clean, traditional flavors.', 5, 'Food-Name-1873.jpg', 3, 'Yes', 'Yes'),
-(9, 'Sapporo Corn Butter Ramen', '   Famous Hokkaido specialty with a fish comforting and rich miso base.', 3, 'Food-Name-6070.jpg', 3, 'Yes', 'Yes');
+(9, 'Sapporo Corn Butter Ramen', '   Famous Hokkaido specialty with a fish comforting and rich miso base.', 3, 'Food-Name-6070.jpg', 3, 'Yes', 'Yes'),
+(10, 'Special Bangaldeshi Ramen', 'Bangaldeshi Ramen Recipe using Hilsha Fish', 30, '', 5, 'Yes', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -155,6 +155,26 @@ CREATE TABLE `tbl_order` (
   `customer_email` varchar(150) NOT NULL,
   `customer_address` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_order`
+--
+
+INSERT INTO `tbl_order` (`id`, `food`, `price`, `quantity`, `total`, `order_date`, `status`, `customer_name`, `customer_contact`, `customer_email`, `customer_address`) VALUES
+(1, 'Spicy Miso Ramen', 3, 1, 3, '2025-09-22 22:16:32', 'Ordered', 'Sashaa', '01793310669', 'Sasha1@gmail.com', 'Matpara,Munshiganj Dhaka Bangladesh'),
+(2, 'Spicy Miso Ramen', 3, 1, 3, '2025-09-22 22:24:44', 'Ordered', 'Sashaa', '01793310669', 'Sasha1@gmail.com', 'Matpara,Munshiganj Dhaka Bangladesh'),
+(3, 'Tonketsu Ramen', 2, 1, 2, '2025-09-22 22:25:05', 'Ordered', 'Sashaa', '01793310669', 'Sasha1@gmail.com', 'Matpara,Munshiganj Dhaka Bangladesh'),
+(4, 'Tonketsu Ramen', 2, 1, 2, '2025-09-22 22:26:53', 'Ordered', 'Sashaa', '01793310669', 'Sasha1@gmail.com', 'Matpara,Munshiganj Dhaka Bangladesh'),
+(5, 'Vegan Ramen', 4, 1, 4, '2025-09-22 22:28:31', 'Ordered', 'Sashaa', '01793310669', 'Sasha1@gmail.com', 'Matpara,Munshiganj Dhaka Bangladesh'),
+(6, 'Vegan Ramen', 4, 1, 4, '2025-09-22 22:28:44', 'Ordered', 'Sashaa', '01793310669', 'Sasha1@gmail.com', 'Matpara,Munshiganj Dhaka Bangladesh'),
+(7, 'Vegan Ramen', 4, 1, 4, '2025-09-22 22:30:22', 'Ordered', 'Sashaa', '01793310669', 'Sasha1@gmail.com', 'Matpara,Munshiganj Dhaka Bangladesh'),
+(8, 'Vegan Ramen', 4, 1, 4, '2025-09-22 22:30:28', 'Ordered', 'Sashaa', '01793310669', 'Sasha1@gmail.com', 'Matpara,Munshiganj Dhaka Bangladesh'),
+(9, 'Vegan Ramen', 4, 1, 4, '2025-09-22 22:31:33', 'Ordered', 'Sashaa', '01793310669', 'Sasha1@gmail.com', 'Matpara,Munshiganj Dhaka Bangladesh'),
+(10, 'Shoyu Ramen', 2, 1, 2, '2025-09-22 22:32:16', 'Ordered', 'Sashaa', '01793310669', 'Sasha1@gmail.com', 'Matpara,Munshiganj Dhaka Bangladesh'),
+(11, 'Shoyu Ramen', 2, 1, 2, '2025-09-22 22:33:52', 'Ordered', 'Sashaa', '01793310669', 'Sasha1@gmail.com', 'Matpara,Munshiganj Dhaka Bangladesh'),
+(12, 'Tonketsu Ramen', 2, 1, 2, '2025-09-22 22:37:42', 'Ordered', 'Sashaa', '01793310669', 'Sasha1@gmail.com', 'Matpara,Munshiganj Dhaka Bangladesh'),
+(13, 'Tonketsu Ramen', 2, 1, 2, '2025-09-22 22:41:20', 'Ordered', 'Sashaa', '01793310669', 'Sasha1@gmail.com', 'Matpara,Munshiganj Dhaka Bangladesh'),
+(14, 'Shoyu Ramen', 2, 10, 20, '2025-09-22 22:43:41', 'Ordered', 'Sashaa', '01793310669', 'Sasha1@gmail.com', 'Matpara,Munshiganj Dhaka Bangladesh');
 
 --
 -- Indexes for dumped tables
@@ -200,7 +220,7 @@ ALTER TABLE `tbl_order`
 -- AUTO_INCREMENT for table `Student`
 --
 ALTER TABLE `Student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `tbl_admin`
@@ -218,13 +238,13 @@ ALTER TABLE `tbl_category`
 -- AUTO_INCREMENT for table `tbl_food`
 --
 ALTER TABLE `tbl_food`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

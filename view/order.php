@@ -143,7 +143,7 @@ session_start() ;
      else {
             $_SESSION['order'] = "<div class='error text-center'>Failed to Order Food. " . $conn->error . "</div>";
         }
-            header("Location: order.php");
+            header("Location: index.php");
             exit;
 
 }
