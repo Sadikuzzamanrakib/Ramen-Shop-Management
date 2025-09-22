@@ -48,6 +48,33 @@ if (isset($_POST['email'])) {
     }
 }
 
+if (isset($_FILES['profile-pic']) && $_FILES['profile-pic']['error'] === UPLOAD_ERR_OK) {
+    $tmpName = $_FILES['profile-pic']['tmp_name'];
+
+    // --- MIME check using mime_content_type ---
+    $mime = mime_content_type($tmpName);
+
+    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+
+    if (!in_array($mime, $allowedTypes)) {
+        $errors['image'] = "Only JPG, PNG, GIF, or WEBP files are allowed.";
+    } else {
+        // --- Safe filename ---
+        $extension = pathinfo($_FILES['profile-pic']['name'], PATHINFO_EXTENSION);
+        $fileName  = uniqid("img_", true) . "." . strtolower($extension);
+        $targetPath = __DIR__ . "/../uploads/" . $fileName;
+
+        // --- Move file ---
+          if (move_uploaded_file($tmpName, $targetPath)) {
+            // Save relative path in DB
+            updateUserPhoto( $_SESSION['user']['id'], "uploads/" . $fileName);
+            $_SESSION['user']['photo'] = "uploads/" . $fileName;
+        } else {
+             $errors['image'] = "Upload failed.";
+        }
+    }
+}
+
 // --- Response ---
 if ($errors) {
     http_response_code(422);

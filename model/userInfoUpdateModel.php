@@ -21,4 +21,13 @@ function updateUserEmail( $email) {
     $stmt->bind_param("si", $email, $_SESSION['user']['id']);
     $stmt->execute();
 }
+
+function updateUserPhoto( $id, $photoPath) {
+    global $conn;
+    $sql = "UPDATE Student SET photo = ? WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("si", $photoPath, $id);
+     $stmt->execute();
+}
 ?> 
+
