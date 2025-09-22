@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+    <title>Ramen House</title>
+    <link rel="shortcut icon" href="images/ramen logo.png" type="image/x-icon">
+   
+    <link rel="stylesheet" href="css/index.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+   
+    <!-- Header Section -->
+    <section class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span><img src="images/ramen logo.png" alt="Ramen House Logo" width="80" height="80"></span>
+            </div>
+
+            <div class="menu text-right">
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="categories.html">Categories</a>
+                    </li>
+                    <li>
+                        <a href="foods.html">Foods</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                     <li>
+                        <a href="profile.html">Profile</a>
+                    </li>
+                     <li>
+                        <a href="controller/login.php">Login</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="food-search text-center">
+        <div class="container">
+            
+            <form action="food-search.html" method="POST">
+                <input type="search" name="search" placeholder="Search for Ramen.." required>
+                <input type="submit" name="submit" value="Search" class="btn btn-primary">
+            </form>
+
+        </div>
+    </section>
+ 
+
+    <!-- Explore Ramen Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="text-center">Explore Ramen</h2>
+
+            <a href="categories.html">
+            <div class="box-3 float-container"> 
+                <img src="images/Egg.jpg" alt="Egg Ramen" class="img-responsive img-curve top3-food">
+
+                <h3 class="R">Egg Ramen</h3>
+            </div>
+            </a>
+
+            <a href="categories.html">
+            <div class="box-3 float-container">
+                <img src="images/Meat.jpg" alt="Meat Ramen" class="img-responsive img-curve top3-food">
+
+                <h3 class="R">Meat Ramen</h3>
+            </div>
+            </a>
+
+            <a href="categories.html">
+            <div class="box-3 float-container">
+                <img src="images/Fish.jpg" alt="Fish Ramen" class="img-responsive img-curve top3-food">
+
+                <h3 class="R">Fish Ramen</h3>
+            </div>
+            </a>
+
+            <div class="clearfix"></div>
+        </div>
+    </section>
+ 
+
+    <!-- Our Ramen Menu Section -->
+    <section class="food-menu">
+        <div class="container">
+            <h2 class="text-center">Our Ramen Menu</h2>
+
+            <div class="food-menu-box">
+                <div class="food-menu-img">
+                    <img src="images/Tonkotsu Ramen.jpg" alt="Tonkotsu Ramen" class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4>Tonkotsu Ramen</h4>
+                    <p class="food-price">$2.3</p>
+                    <p class="food-detail">
+                        Deep umami flavor, silky broth, traditional Japanese style.
+                    </p>
+                    <br>
+
+                    <a href="order.html" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+
+            <div class="food-menu-box">
+                <div class="food-menu-img">
+                    <img src="images/Shoyu Ramen.jpg" alt="Shoyu Ramen with Braised Beef" class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4>Shoyu Ramen with Braised Beef</h4>
+                    <p class="food-price">$2.3</p>
+                    <p class="food-detail">
+                       Bold savory flavor with a hearty veggie and beef balance.
+                    </p>
+                    <br>
+
+                    <a href="order.html" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+
+            <div class="food-menu-box">
+                <div class="food-menu-img">
+                    <img src="images/Spicy Miso Ramen.jpg" alt="Spicy Miso Ramen" class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4>Spicy Miso Ramen</h4>
+                    <p class="food-price">$2.5</p>
+                    <p class="food-detail">
+                        Medium spice heat, nutty richness, perfect for chili lovers.
+                    </p>
+                    <br>
+
+                    <a href="order.html" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+
+            <div class="food-menu-box">
+                <div class="food-menu-img">
+                    <img src="images/Vegan Ramen.jpg" alt="Vegan Ramen with Pickled Veggies" class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4>Vegan Ramen with Pickled Veggies</h4>
+                    <p class="food-price">$2.0</p>
+                    <p class="food-detail">
+                       Light, clean, and refreshing—ideal for a plant-based option.
+                    </p>
+                    <br>
+
+                    <a href="order.html" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+        <p class="text-center">
+            <a href="foods.html">See All Foods</a>
+        </p>
+    </section>
+    
+  
+    <!-- Footer Section -->
+    <section class="footer">
+       <div class="container">
+            <p>All rights reserved. Designed By <a href="contact.html">Group-4</a></p>
+            <div class="social-links">
+              <a href="contact.html"><i class="fab fa-facebook-f"></i></a>
+              <a href="contact.html"><i class="fab fa-instagram"></i></a>
+              <a href="contact.html"><i class="fab fa-twitter"></i></a>
+              <a href="contact.html"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </section>
+  
+
+</body>
+</html>
