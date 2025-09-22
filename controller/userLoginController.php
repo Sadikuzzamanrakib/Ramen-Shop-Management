@@ -1,6 +1,6 @@
 <?php
 include('../model/userLoginModel.php');
-echo "Model inclusion successful";
+//echo "Model inclusion successful";
 session_start() ;
 ?>
 
@@ -41,7 +41,7 @@ session_start() ;
     }
     else{
          $_SESSION['login'] = "Invalid Email!!";
-         // header('Location:../view/registration.php');  
+       //  header('Location:../view/registration.php');  
     }
     }
 

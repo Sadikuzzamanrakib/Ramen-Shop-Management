@@ -6,13 +6,13 @@ include('../model/regmodel.php');
 
 <?php
 
+try{
 $username = $_POST['username'] ; 
 $email = $_POST['email'] ; 
 $pass = $_POST['pass'] ; 
 $passHash;
- 
-try{
-    validateFields() ;
+
+   validateFields() ;
    $id =  registerStudent($username , $email , $passHash);
    echo json_encode(['ok' => true, 'id' => $id]);
 }
@@ -30,12 +30,10 @@ catch(mysqli_sql_exception $e){
     http_response_code(409);
     echo json_encode(['ok' => false, 'errors' => $dup ?: ['form' => 'Account already exists']]);
   } else {
-    // Generic message to user; real error goes to logs
-    error_log('DB error (register): ' . $e->getMessage());
-    http_response_code(500);
     echo json_encode(['ok' => false, 'errors' => ['form' => 'Server error. Try again.']] );
   }
 }
+
 
 
 

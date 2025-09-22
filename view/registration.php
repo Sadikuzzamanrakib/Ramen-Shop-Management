@@ -32,7 +32,7 @@ session_start();
             <span class="badge">🌶️ Level your spice</span>
             <span class="badge">⏱️ Quick pickup</span>
           </div>
-          <div class="hero">Chef’s sketch space (add an image later)</div>
+          <div class="hero">Ramen Bar</div>
         </section>
 
         <!-- RIGHT: card with tabs -->

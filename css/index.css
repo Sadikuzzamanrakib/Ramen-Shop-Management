@@ -223,14 +223,15 @@ fieldset
 
 .food-order
 {
-    background-image: url(../images/order6.jpg);
+    background-image: url(../images/fishramen.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.food-search 
-{
-    background-image: url(../images/headerpic.jpg);
+.food-search
+{   
+
+    background-image: url(../images/meatramen.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

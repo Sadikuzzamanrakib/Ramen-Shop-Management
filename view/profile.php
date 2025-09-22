@@ -15,9 +15,11 @@ $user = $_SESSION['user'] ?? null;
     <link rel="stylesheet" href="../css/profile.css">
 </head>
 <body style="font-family: Arial, Helvetica, sans-serif;">
-    <h2>
+         <h2>  
         Profile Information
     </h2>
+
+   
     <div class="container">
         <div class="stored-info">
 
@@ -26,46 +28,14 @@ $user = $_SESSION['user'] ?? null;
         </div>
         <div class="profile-info">
             <div class="name">
-                 <?= $user['username']; ?>
+              <?= $user['username']; ?>
             </div>
             <div class="email">
                       <?= $user['email']; ?>
             </div>
-
-        </div>
-        <div class="edit">
-            <button class="edit-btn" id="edit-btn" onclick="Edit()">Edit</button>
-        </div>
-
-        </div>
-        
-        <div class="edit-info">
-            <div class="edit-row1">
-                <div class="name-block">
-                       <span class="input-label">Name</span>
-                       <div class="input-field">     
-                           <input type="text" name="name-edit" id="name-edit" placeholder="  <?= $user['username']; ?>" readonly>
-                        
-                       </div>
-         
-
-                </div>
-             </div>
-            
-            <div class="edit-row2">
-                 <div class="email-block">
-                    <span class="input-label">Email</span>
-                    <div class="input-field">
-         <input type="email" name="email-edit" id="email-edit" placeholder="<?= $user['email']; ?>" readonly >
-                    </div>
-                   
-                 </div>
-
-            </div>
-
-        </div>
-        
     </div>
+
+   
 
     <h2>Purchase History</h2>
 
@@ -108,33 +78,8 @@ $user = $_SESSION['user'] ?? null;
     </table>
 
     <script>
-            let st= 2 ;
-            console.log(st);
-      function Edit(){
-           // disabled editing st 
-           console.log("Edit function called");
-        if(st%2==0){
-            st++;
-            console.log("Enabaling Edit");
-            enableEdit();
-        }
-        else{
-            st++;
-            disableEdit();
-            
-        }
-            }
-
-        function enableEdit(){
-        document.getElementById('name-edit').removeAttribute('readonly');
-        document.getElementById('email-edit').removeAttribute('readonly') ; 
-        document.getElementById('edit-btn').innerText="Save";
-        }
-         function disableEdit(){
-        document.getElementById('name-edit').setAttribute('readonly', true);
-        document.getElementById('email-edit').setAttribute('readonly' ,true) ; 
-        document.getElementById('edit-btn').innerText="Edit";
-        }
+    
+    
        
      </script>
 

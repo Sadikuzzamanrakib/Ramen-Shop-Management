@@ -1,4 +1,5 @@
-    <?php include('../partials-front/menu.php'); ?>
+    <?php include('../partials-front/menu.php'); 
+   ?>
 
     <!-- Search Section -->
     <section class="food-search text-center">
@@ -19,6 +20,8 @@
             unset($_SESSION['order']);
         }
     ?>
+
+    
 
 
     <!-- Explore Ramen Section -->
@@ -73,7 +76,7 @@
 
                 }
 
-                     {
+                       else  {
                                        
                                         echo "<div class='error'>Image not Available</div>";
                                     }

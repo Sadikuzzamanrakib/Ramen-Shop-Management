@@ -2,7 +2,6 @@
     <section class="categories">
         <div class="container">
             <h2 class="text-center">Explore Foods</h2>
-
          
 
             <?php 
@@ -60,8 +59,7 @@
             ?>
             
             
-
-            <div class="clearfix"></div>
+        <div class="clearfix"></div> 
         </div>
     </section>
   
