@@ -1,4 +1,6 @@
-    <?php include('../partials-front/menu.php'); 
+    <?php 
+    session_start();
+    include('../partials-front/menu.php'); 
    ?>
 
     <!-- Search Section -->
