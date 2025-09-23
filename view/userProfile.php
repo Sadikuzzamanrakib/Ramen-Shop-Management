@@ -1,4 +1,5 @@
 <?php
+
 include('../partials-front/menu.php');
 session_start();
 $user = $_SESSION['user'] ?? null;
@@ -104,12 +105,47 @@ $user = $_SESSION['user'] ?? null;
             <td>${order.food}</td>
             <td>${order.status}</td>
             <td>$${order.total}</td>
-            <td><button style="width: 80px; color:"blue";" >View</button></td>
+            <td><button class="view-btn" data-order-id="${order.id}" style="width: 80px; backgroundColor: "Blue";">View</button></td>
           </tr>
         `;
       });
+
+      // Add event listeners to all "View" buttons
+      const viewButtons = document.querySelectorAll(".view-btn");
+      viewButtons.forEach(button => {
+        button.addEventListener("click", (event) => {
+          const orderId = event.target.getAttribute("data-order-id");
+          console.log(orderId);
+          viewOrderDetails(orderId);  
+        });
+      });
     }
   }
+
+  // Function to fetch order details by order ID
+async function viewOrderDetails(orderId) {
+  const url = `../controller/userOrderDetailsController.php?order_id=${orderId}`;
+  
+  try {
+    const res = await fetch(url, {
+      method: 'GET',
+    });
+
+    if (res.ok) {
+      const orderDetails = await res.json();
+
+      if (orderDetails.success) {
+        console.log(orderDetails.data);  // Display order details
+      } else {
+        console.error("No order found:", orderDetails.message);
+      }
+    } else {
+      console.error("Failed to fetch order details");
+    }
+  } catch (err) {
+    console.error("Error:", err);
+  }
+}
   loadOrders();
 </script>
 
