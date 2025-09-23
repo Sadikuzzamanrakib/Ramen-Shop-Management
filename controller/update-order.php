@@ -125,50 +125,56 @@
 
         <?php 
            
-            if(isset($_POST['submit']))
-            {
-              
+            if (isset($_POST['submit'])) {
                 $id = $_POST['id'];
                 $price = $_POST['price'];
                 $qty = $_POST['qty'];
-
                 $total = $price * $qty;
-
                 $status = $_POST['status'];
-
                 $customer_name = $_POST['customer_name'];
                 $customer_contact = $_POST['customer_contact'];
                 $customer_email = $_POST['customer_email'];
                 $customer_address = $_POST['customer_address'];
 
-              
-                $sql2 = "UPDATE tbl_order SET 
-                    qunatity = $qty,
-                    total = $total,
-                    status = '$status',
-                    customer_name = '$customer_name',
-                    customer_contact = '$customer_contact',
-                    customer_email = '$customer_email',
-                    customer_address = '$customer_address'
-                    WHERE id=$id
-                ";
+                $sql2 = "UPDATE tbl_order 
+                            SET quantity = ?, 
+                                total = ?, 
+                                status = ?, 
+                                customer_name = ?, 
+                                customer_contact = ?, 
+                                customer_email = ?, 
+                                customer_address = ?
+                        WHERE id = ?";
 
-              
-                $res2 = mysqli_query($conn, $sql2);
+                $stmt = $conn->prepare($sql2);
+                if (!$stmt) {
+                    die("Prepare failed: " . $conn->error);
+                }
 
-             
-                if($res2==true)
-                {
-                 
+                // Bind parameters (i = int, d = double/decimal, s = string)
+                $stmt->bind_param(
+                    "idsssssi",   // 8 params: int, decimal, string...
+                    $qty,         // quantity (int)
+                    $total,       // total (decimal but we can bind as double)
+                    $status, 
+                    $customer_name, 
+                    $customer_contact, 
+                    $customer_email, 
+                    $customer_address, 
+                    $id           // WHERE id (int)
+                );
+
+                $res2 = $stmt->execute();
+                $stmt->close();
+
+                if ($res2) {
                     $_SESSION['update'] = "<div class='success'>Order Updated Successfully.</div>";
-                    header('location:'.SITEURL.'controller/manage-order.php');
+                } else {
+                    $_SESSION['update'] = "<div class='error'>Failed to Update Order. " . $conn->error . "</div>";
                 }
-                else
-                {
-                    
-                    $_SESSION['update'] = "<div class='error'>Failed to Update Order.</div>";
-                    header('location:'.SITEURL.'controller/manage-order.php');
-                }
+
+                header('Location: ' . SITEURL . 'controller/manage-order.php');
+                exit;
             }
         ?>
 
