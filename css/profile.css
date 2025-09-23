@@ -114,6 +114,7 @@
       padding-left: 10px;
     }
 
+
     .purchase-history-table {
       width: 90%;
       margin: 0 auto 40px;
@@ -152,3 +153,52 @@
       font-size: 0.95rem;
       color: #555;
     }
+    .filter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 50px;
+        gap: 15px;
+    }
+
+    .search {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex: 1;
+        }
+
+        .search input {
+        flex: 1;
+        padding: 8px 10px;
+        font-size: 0.95rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        outline: none;
+        transition: border-color 0.3s ease;
+        }
+        .search input:focus {
+        border-color: #4CAF50;
+        }
+
+        .search button {
+        background: #4CAF50;
+        border: none;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.3s ease;
+        }
+        .search button:hover {
+        background: #43a047;
+        }
+
+        .filter-options select {
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        cursor: pointer;
+        }

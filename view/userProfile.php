@@ -55,30 +55,63 @@ $user = $_SESSION['user'] ?? null;
   <div id="showMsg"></div>
 </div>
 
+   <!-- Filter Section -->
+<div class="filter">
+  <!-- Search Box -->
+  <div class="search">
+    <input type="text" id="search-box" placeholder="Search by item, order ID, or date...">
+    <button id="search-btn"><i class="fa fa-search"></i></button>
+  </div>
+
+  <!-- Filter Dropdown -->
+  <div class="filter-options">
+    <select id="filter-status">
+      <option value="">All Status</option>
+      <option value="Ordered">Ordered</option>
+      <option value="Delivered">Delivered</option>
+      <option value="Cancelled">Cancelled</option>
+      <option value="In Progress">In Progress</option>
+    </select>
+  </div>
+</div>
+
   <h2>Purchase History</h2>
-  <table class="purchase-history-table">
-    <tr>
-      <th>Order Id</th>
-      <th>Date</th>
-      <th>Items</th>
-      <th>Status</th>
-      <th>Total</th>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>12.08.25</td>
-      <td>Fish Chowmein</td>
-      <td>Delivered</td>
-      <td>$50</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>15.08.25</td>
-      <td>Chicken Ramen</td>
-      <td>Pending</td>
-      <td>$70</td>
-    </tr>
-  </table>
+ <table class="purchase-history-table" id="history-table">
+  <tr>
+    <th>Order Id</th>
+    <th>Date</th>
+    <th>Items</th>
+    <th>Status</th>
+    <th>Total</th>
+    <th>Action</th>
+  </tr>
+</table>
+
+<script>
+  async function loadOrders() {
+    const res = await fetch("../controller/userOrderController.php");
+    const orders = await res.json();
+
+    const table = document.getElementById("history-table");
+    if (orders.length === 0) {
+      table.innerHTML += "<tr><td colspan='5' style='text-align:center;'>No purchase history found</td></tr>";
+    } else {
+      orders.forEach(order => {
+        table.innerHTML += `
+          <tr>
+            <td>${order.id}</td>
+            <td>${order.order_date}</td>
+            <td>${order.food}</td>
+            <td>${order.status}</td>
+            <td>$${order.total}</td>
+            <td><button style="width: 80px; color:"blue";" >View</button></td>
+          </tr>
+        `;
+      });
+    }
+  }
+  loadOrders();
+</script>
 
   <script>
     const nameInput = document.getElementById("name-edit");
