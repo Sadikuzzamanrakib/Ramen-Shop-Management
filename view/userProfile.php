@@ -135,7 +135,8 @@ async function viewOrderDetails(orderId) {
       const orderDetails = await res.json();
 
       if (orderDetails.success) {
-        console.log(orderDetails.data);  // Display order details
+        console.log(orderDetails.data); 
+           window.location.href = "userOrderDetails.php";
       } else {
         console.error("No order found:", orderDetails.message);
       }

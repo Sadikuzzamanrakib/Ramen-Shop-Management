@@ -3,17 +3,17 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 include("../model/userOrderModel.php");
 
-header('Content-Type: application/json');  // Ensure the header is set for JSON response
+header('Content-Type: application/json');  
 
-// Check if order_id is present in the GET request
+
 if($_SERVER["REQUEST_METHOD"] == "GET"){
 if (isset($_GET['order_id'])) {
     $orderId = $_GET['order_id'];
 
-    // Fetch the order details based on the order_id
     $orderDetails = getOrderById($orderId); 
 
     if ($orderDetails) {
+        $_SESSION['order_details']=$orderDetails;
         echo json_encode([
             'success' => true,
             'data' => $orderDetails
