@@ -22,18 +22,6 @@ session_start();
 
     <main>
       <div class="container">
-        <!-- LEFT: intro / marketing copy -->
-        <section class="intro">
-          <h2>Slurp-worthy bowls, crafted fresh.</h2>
-          <p>Join Ramen Station to save your favourites, track orders, and get spicy perks.</p>
-          <div class="badges">
-            <span class="badge">🍜 Handmade noodles</span>
-            <span class="badge">🔥 Signature Tantanmen</span>
-            <span class="badge">🌶️ Level your spice</span>
-            <span class="badge">⏱️ Quick pickup</span>
-          </div>
-          <div class="hero">Ramen Bar</div>
-        </section>
 
         <!-- RIGHT: card with tabs -->
         <section class="card">

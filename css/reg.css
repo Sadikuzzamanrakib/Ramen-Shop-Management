@@ -108,46 +108,14 @@
       max-width: 1100px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.1fr .9fr; /* grid */
+      grid-template-columns: auto ;/* grid */
       gap: clamp(16px, 4vw, 32px);
-      align-items: start;
+      align-items: stretch;
     }
     @media (max-width: 900px) {
       .container { grid-template-columns: 1fr; }
     }
 
-    /* --- Left: Intro / hero card --- */
-    .intro {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: clamp(16px, 4vw, 28px);
-      box-shadow: var(--shadow);
-      display: grid; gap: 12px;
-    }
-    .intro h2 {
-      margin: 0 0 4px; font-size: clamp(20px, 2.2vw, 28px);
-    }
-    .intro p { color: var(--muted); margin: 0; }
-    .badges { display:flex; gap:10px; flex-wrap: wrap; margin-top: 10px; }
-    .badge {
-      padding: 6px 10px; border-radius: 999px;
-      background: #fff5f0; color: var(--accent);
-      border: 1px solid #ffd2c2; font-size: 13px;
-    }
-    .hero {
-      margin-top: 10px;
-      border-radius: 12px;
-      background:
-        linear-gradient(135deg, rgba(255,69,0,.08), rgba(255,69,0,.02)),
-        repeating-linear-gradient(45deg, #fff, #fff 10px, #fffaf7 10px, #fffaf7 20px);
-      min-height: 160px;
-      border: 1px dashed #ffd2c2;
-      display:flex; align-items:center; justify-content:center;
-      color: var(--muted);
-      font-size: 14px;
-      
-    }
 
     /* --- Right: Auth card with tabs (nested layout inside card) --- */
     .card {

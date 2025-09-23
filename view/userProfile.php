@@ -105,7 +105,7 @@ $user = $_SESSION['user'] ?? null;
             <td>${order.food}</td>
             <td>${order.status}</td>
             <td>$${order.total}</td>
-            <td><button class="view-btn" data-order-id="${order.id}" style="width: 80px; backgroundColor: "Blue";">View</button></td>
+            <td><button class="view-btn" data-order-id="${order.id}" style="width: 80px; background-color: "Blue";">View</button></td>
           </tr>
         `;
       });
