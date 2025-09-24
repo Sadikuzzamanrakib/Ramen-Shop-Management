@@ -41,3 +41,26 @@ function getOrderById($order_id) {
 
     return $order;
 }
+
+function getOrderByStatusAndEmail($status, $email) {
+    global $conn;
+    $sql = "SELECT * FROM tbl_order 
+            WHERE status = ? AND customer_email = ? 
+            ORDER BY order_date DESC";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $status, $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $orders = [];
+    while ($row = $result->fetch_assoc()) {
+        $orders[] = $row;
+    }
+
+    $stmt->close();
+    return $orders;
+}
+
+
+?>

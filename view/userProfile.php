@@ -66,8 +66,8 @@ $user = $_SESSION['user'] ?? null;
 
   <!-- Filter Dropdown -->
   <div class="filter-options">
-    <select id="filter-status">
-      <option value="">All Status</option>
+    <select id="filter-status" onchange="showFilteredOrder(this.value)">
+    <option value="All">All Status</option>
       <option value="Ordered">Ordered</option>
       <option value="Delivered">Delivered</option>
       <option value="Cancelled">Cancelled</option>
@@ -87,15 +87,101 @@ $user = $_SESSION['user'] ?? null;
     <th>Action</th>
   </tr>
 </table>
+<script>
+function showFilteredOrder(str) {
+  console.log('filtered order called', str);
 
+  if (str === "") {
+    document.getElementById("history-table").innerHTML = "";
+    return;
+  }
+
+  // Save filter in URL
+  const params = new URLSearchParams(window.location.search);
+  params.set("filter", str);
+  history.replaceState(null, "", "?" + params.toString());
+
+  if (str === "All") {
+    // Just load all orders
+    loadOrders();
+    return;
+  }
+
+  // Otherwise filter by status
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      try {
+        const orders = JSON.parse(this.responseText);
+        loadFilterOrders(orders);
+        viewButtonSetup();
+      } catch (err) {
+        console.error("Failed to parse JSON:", err);
+      }
+    }
+  };
+  xmlhttp.open("GET", "../controller/orderFilterController.php?q=" + encodeURIComponent(str), true);
+  xmlhttp.send();
+}
+
+function loadFilterOrders(orders) {
+  const table = document.getElementById("history-table");
+  table.innerHTML = `
+    <tr>
+      <th>Order Id</th>
+      <th>Date</th>
+      <th>Food</th>
+      <th>Status</th>
+      <th>Total</th>
+      <th>Action</th>
+    </tr>
+  `;
+
+  if (!orders || orders.length === 0) {
+    table.innerHTML += "<tr><td colspan='6' style='text-align:center;'>No purchase history found</td></tr>";
+    return;
+  }
+
+  orders.forEach(order => {
+    table.innerHTML += `
+      <tr>
+        <td>${order.id}</td>
+        <td>${order.order_date}</td>
+        <td>${order.food}</td>
+        <td>${order.status}</td>
+        <td>$${order.total}</td>
+        <td>
+          <button class="view-btn" 
+                  data-order-id="${order.id}" 
+                  style="width: 80px; height:30px; background-color: blue; color: #fff; border: none; border-radius: 4px; cursor: pointer;">
+            View
+          </button>
+        </td>
+      </tr>
+    `;
+  });
+}
+</script>
 <script>
   async function loadOrders() {
     const res = await fetch("../controller/userOrderController.php");
     const orders = await res.json();
 
     const table = document.getElementById("history-table");
+    // Clear existing table content first
+    table.innerHTML = `
+      <tr>
+        <th>Order Id</th>
+        <th>Date</th>
+        <th>Items</th>
+        <th>Status</th>
+        <th>Total</th>
+        <th>Action</th>
+      </tr>
+    `;
+    
     if (orders.length === 0) {
-      table.innerHTML += "<tr><td colspan='5' style='text-align:center;'>No purchase history found</td></tr>";
+      table.innerHTML += "<tr><td colspan='6' style='text-align:center;'>No purchase history found</td></tr>";
     } else {
       orders.forEach(order => {
         table.innerHTML += `
@@ -105,13 +191,18 @@ $user = $_SESSION['user'] ?? null;
             <td>${order.food}</td>
             <td>${order.status}</td>
             <td>$${order.total}</td>
-            <td><button class="view-btn" data-order-id="${order.id}" style="width: 80px; background-color: "Blue";">View</button></td>
+            <td><button class="view-btn" data-order-id="${order.id}" style="width: 80px; height:30px; background-color: blue; color: #fff; border: none; border-radius: 4px; cursor: pointer;">View</button></td>
           </tr>
         `;
       });
 
-      // Add event listeners to all "View" buttons
-      const viewButtons = document.querySelectorAll(".view-btn");
+      
+       viewButtonSetup();
+    }
+  }
+  // Add event listeners to all "View" buttons
+  function viewButtonSetup(){
+    const viewButtons = document.querySelectorAll(".view-btn");
       viewButtons.forEach(button => {
         button.addEventListener("click", (event) => {
           const orderId = event.target.getAttribute("data-order-id");
@@ -119,9 +210,7 @@ $user = $_SESSION['user'] ?? null;
           viewOrderDetails(orderId);  
         });
       });
-    }
   }
-
   // Function to fetch order details by order ID
 async function viewOrderDetails(orderId) {
   const url = `../controller/userOrderDetailsController.php?order_id=${orderId}`;
@@ -147,7 +236,7 @@ async function viewOrderDetails(orderId) {
     console.error("Error:", err);
   }
 }
-  loadOrders();
+// loadOrders();
 </script>
 
   <script>
@@ -291,6 +380,25 @@ function showMessage(msgBox, message, duration = 4000) {
     }, duration);
   }
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const savedFilter = params.get("filter");
+
+  if (savedFilter && savedFilter !== "All") {
+    // Restore previous filter
+    showFilteredOrder(savedFilter);
+
+    // Update dropdown UI
+    const dropdown = document.getElementById("filter-status");
+    if (dropdown) {
+      dropdown.value = savedFilter;
+    }
+  } else {
+    // Default: load all orders
+    loadOrders();
+  }
+});
+
   </script>
 </body>
 </html>
