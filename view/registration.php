@@ -15,7 +15,7 @@ session_start();
     <header>
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
-        <h1><span>Ramen</span> Station</h1>
+        <h1><span>Ramen</span> House</h1>
          <div class="home"><a href="index.php" id="homelink">Home</a></div> 
       </div>
     </header>
@@ -23,7 +23,6 @@ session_start();
     <main>
       <div class="container">
 
-        <!-- RIGHT: card with tabs -->
         <section class="card">
           <nav class="tabs">
             <button class="tab-btn active" data-tab="register">Register</button>

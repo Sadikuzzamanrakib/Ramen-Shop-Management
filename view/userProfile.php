@@ -60,7 +60,7 @@ $user = $_SESSION['user'] ?? null;
 <div class="filter">
   <!-- Search Box -->
   <div class="search">
-    <input type="text" id="search-box" placeholder="Search by item, order ID, or date...">
+    <input type="text" id="search-box" placeholder="Search by item, order ID, or date..." onkeyup="searchOrders(this.value)">
     <button id="search-btn"><i class="fa fa-search"></i></button>
   </div>
 
@@ -102,12 +102,10 @@ function showFilteredOrder(str) {
   history.replaceState(null, "", "?" + params.toString());
 
   if (str === "All") {
-    // Just load all orders
     loadOrders();
     return;
   }
 
-  // Otherwise filter by status
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -121,6 +119,34 @@ function showFilteredOrder(str) {
     }
   };
   xmlhttp.open("GET", "../controller/orderFilterController.php?q=" + encodeURIComponent(str), true);
+  xmlhttp.send();
+}
+
+function searchOrders(searchTerm) {
+  console.log('search orders called', searchTerm);
+
+  if (searchTerm === "") {
+    loadOrders();
+    return;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  params.set("search", searchTerm);
+  history.replaceState(null, "", "?" + params.toString());
+
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      try {
+        const orders = JSON.parse(this.responseText);
+        loadFilterOrders(orders);
+        viewButtonSetup();
+      } catch (err) {
+        console.error("Failed to parse JSON:", err);
+      }
+    }
+  };
+  xmlhttp.open("GET", "../controller/orderSearchController.php?search=" + encodeURIComponent(searchTerm), true);
   xmlhttp.send();
 }
 
@@ -191,7 +217,7 @@ function loadFilterOrders(orders) {
             <td>${order.food}</td>
             <td>${order.status}</td>
             <td>$${order.total}</td>
-            <td><button class="view-btn" data-order-id="${order.id}" style="width: 80px; height:30px; background-color: blue; color: #fff; border: none; border-radius: 4px; cursor: pointer;">View</button></td>
+            <td><button class="view-btn" data-order-id="${order.id}" style="width: 80px; height:30px; background-color:blue; color: #fff; border: none; border-radius: 4px; cursor: pointer;">View</button></td>
           </tr>
         `;
       });
@@ -383,8 +409,16 @@ function showMessage(msgBox, message, duration = 4000) {
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const savedFilter = params.get("filter");
+  const savedSearch = params.get("search");
 
-  if (savedFilter && savedFilter !== "All") {
+  if (savedSearch) {
+    // Restore previous search
+    const searchBox = document.getElementById("search-box");
+    if (searchBox) {
+      searchBox.value = savedSearch;
+    }
+    searchOrders(savedSearch);
+  } else if (savedFilter && savedFilter !== "All") {
     // Restore previous filter
     showFilteredOrder(savedFilter);
 
@@ -402,3 +436,9 @@ document.addEventListener("DOMContentLoaded", () => {
   </script>
 </body>
 </html>
+
+<?php
+
+include("../partials-front/footer.php");
+
+?>
