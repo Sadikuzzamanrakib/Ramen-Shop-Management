@@ -12,7 +12,7 @@
     --border-color: #ddd;
 
     /* Creamy Background Colors */
-    --bg-color: #FDFBFB; /* Off-White (Slightly warmer) */
+    --bg-color: #fdfdfb; /* Off-White (Slightly warmer) */
     --secondary-color: #FAF9F6; /* Very Light Beige (Neutral soft background) */
     --hover-bg-color: #D8B7A0; /* Warm Beige (Gentle hover effect) */
     --link-color: #8C5B53; /* Warm Brown (Links) */
@@ -271,7 +271,7 @@ legend {
     margin: 1%;
     padding: 2%;
     float: left;
-    background-color: white;
+    background-color: rgba(1, 41, 69, 0.055);
     border-radius: 15px;
     transition: box-shadow 0.5s;
 }
