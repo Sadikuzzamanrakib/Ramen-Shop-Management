@@ -34,10 +34,10 @@
 
             <form action ="" method ="post" class ="text-center">
             Username : <br>
-            <input type ="text" name="username" placeholder ="Enter Your Username"><br><br>
+            <input type ="text" name="username" placeholder ="Enter Your Username" class="input-field"><br><br>
 
             Password : <br>
-            <input type ="password" name="password" placeholder ="Enter Your Password"><br><br>
+            <input type ="password" name="password" placeholder ="Enter Your Password" class="input-field"><br><br>
 
             <input type ="submit" name="submit" value ="Login" class = "btn-primary"><br><br>
  </form>

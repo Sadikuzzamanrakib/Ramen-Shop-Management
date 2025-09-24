@@ -36,14 +36,28 @@ table tr td{
     padding: 1%;
 }
 .btn-primary{
-    background-color: #1e90ff;
+    background-color: green;
      padding: 1%;
+     cursor: pointer;
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
+.login .btn-primary{
+    background-color: green;
+     padding: 3%;
+     padding-left: 7%;
+     padding-right: 7%;
+     border-radius: 5px;
+     cursor: pointer;
+    color: white;
+    text-decoration: none;
+     
+    font-weight: bold;
+}
 .btn-primary:hover{
-    background-color: #3742fa;
+    background-color:white;
+    color:#2ed573;
 }
 
 .btn-secondary{
@@ -116,9 +130,17 @@ table tr td{
     color: white;
 }
 .login {
-    border: 1px solid grey;
-    width: 20%;
+    border: 5px solid grey;
+    width: 30%;
     margin: 10% auto;
     padding: 2%;
     text-align: center;  
+    border-color: #2ed573
+    ;
+}
+.login .input-field{
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border-color: #7bed9f ;
 }
