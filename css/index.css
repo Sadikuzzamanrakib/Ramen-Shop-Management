@@ -11,8 +11,8 @@
     --footer-text-color: #fff;
     --border-color: #ddd;
     /* Creamy Background Colors */
-    --bg-color: #fdfdfb; /* Off-White (Slightly warmer) */
-    --secondary-color: #FAF9F6; /* Very Light Beige (Neutral soft background) */
+    --bg-color: #fcfcdd; /* Off-White (Slightly warmer) */
+    --secondary-color: #f6f2e5; /* Very Light Beige (Neutral soft background) */
     --hover-bg-color: #D8B7A0; /* Warm Beige (Gentle hover effect) */
     --link-color: #8C5B53; /* Warm Brown (Links) */
 
@@ -159,6 +159,7 @@ a.active {
 .btn-primary:hover {
     background: linear-gradient(135deg, #ff7300, #ff0000);
     transform: scale(1.05);
+    color: white ;
 }
 
 /* Click Effect */
@@ -227,6 +228,13 @@ legend {
 
 .food-search {
     background-image: url(../images/Shoyu\ Ramen.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 7% 0;
+}
+.food-order {
+    background-image: url(../images/bc.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
