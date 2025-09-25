@@ -106,7 +106,6 @@ session_start();
       switchTab(e.currentTarget.dataset.tab);
     }));
 
-    // --- Register form AJAX (fetch + JSON) ---
     const form = document.getElementById('regForm');
     const show = (id, msg) => { const el = document.getElementById(id); if (el) el.textContent = msg || ''; };
     const mark = (name, hasError) => {
@@ -127,7 +126,6 @@ session_start();
 
       let res;
       try {
-        // IMPORTANT: adjust the path if your controller lives elsewhere
         res = await fetch('../controller/regcontroller.php', { method: 'POST', body: fd });
       } catch (err) {
         show('err-form', 'Network error. Is Apache running? Is the URL correct?');

@@ -179,7 +179,7 @@ function loadFilterOrders(orders) {
         <td>
           <button class="view-btn" 
                   data-order-id="${order.id}" 
-                  style="width: 80px; height:30px; background-color: blue; color: #fff; border: none; border-radius: 4px; cursor: pointer;">
+                  style="width: 80px; height:30px; background-color: green; color: #fff; border: none; border-radius: 4px; cursor: pointer;">
             View
           </button>
         </td>
@@ -217,7 +217,7 @@ function loadFilterOrders(orders) {
             <td>${order.food}</td>
             <td>${order.status}</td>
             <td>$${order.total}</td>
-            <td><button class="view-btn" data-order-id="${order.id}" style="width: 80px; height:30px; background-color:blue; color: #fff; border: none; border-radius: 4px; cursor: pointer;">View</button></td>
+            <td><button class="view-btn" data-order-id="${order.id}" style="width: 80px; height:30px; background-color:green; color: #fff; border: none; border-radius: 4px; cursor: pointer;">View</button></td>
           </tr>
         `;
       });
