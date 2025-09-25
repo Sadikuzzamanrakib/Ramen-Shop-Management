@@ -16,6 +16,7 @@ $user = $_SESSION['user'] ?? null;
 </head>
 <body>
 
+<div class="mid">
 <div class="profile-info">
   <!-- Username -->
    <div class="info">
@@ -75,7 +76,7 @@ $user = $_SESSION['user'] ?? null;
     </select>
   </div>
 </div>
-
+</div>
   <h2>Purchase History</h2>
  <table class="purchase-history-table" id="history-table">
   <tr>
